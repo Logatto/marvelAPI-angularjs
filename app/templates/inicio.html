@@ -1,0 +1,15 @@
+<div ng-controller="InicioCtrl as inicio">
+    <form ng-submit="inicio.search()">
+        <label>Search:</label>
+        <input type="text" ng-model="inicio.word" placeholder="Enter a name here">
+        <input class="btn-primary" type="submit" value="Search">
+    </form>
+
+
+    <div ng-repeat="char in inicio.listCharacters">
+        <img ng-src="{{char.thumbnail.path}}.{{char.thumbnail.extension}}" style="width:100px;">
+        {{char.name}}
+    </div>
+
+
+</div>

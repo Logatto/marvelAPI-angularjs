@@ -11,6 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "angular": "^1.6.9",
+    "angular-md5": "^0.1.10",
+    "angular-route": "^1.6.9",
     "serve": "^6.5.3"
   }
 }

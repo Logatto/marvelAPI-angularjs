@@ -1,12 +1,29 @@
-<!doctype html>
-<html ng-app>
+<!DOCTYPE html>
+<html ng-app="spaApp">
   <head>
-    <script src="/node_modules/angular/angular.min.js">
-    </script>
+    <meta charset="UTF-8">
+    <base href="/">
+    <script src="/node_modules/angular/angular.min.js"></script>
+    <script src="/node_modules/angular-route/angular-route.min.js"></script>
+    <script src="/node_modules/angular-md5/angular-md5.min.js"></script>
+
+    <script src="/app/src/app.js"></script>
+    <script src="/app/src/controllers/inicioController.js"></script>
+    <script src="/app/src/services/inicioService.js"></script>
   </head>
   <body>
-    <div>
-      
-    </div>
+        <div class="container">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <ul class="nav">
+                        <li><a href="#/inicio">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div ng-view></div>
+        </div>
+
+
   </body>
 </html>
