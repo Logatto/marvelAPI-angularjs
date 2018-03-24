@@ -1,5 +1,5 @@
-var PRIV_KEY = "";
-var PUBLIC_KEY = "";
+var PRIV_KEY = "03656eeb2065730d32c6cf2ef11e50f4fb91986e";
+var PUBLIC_KEY = "fa2de1079f8bd81b19259c02befff1f0";
 
 var URLBASE = "https://gateway.marvel.com:443/v1/public/characters";
 
@@ -14,7 +14,8 @@ spaApp.factory('inicioService', function($http, $log,md5){
                 ts: ts,
                 apikey: PUBLIC_KEY,
                 hash: hash,
-                nameStartsWith:palabra
+                nameStartsWith:palabra,
+                limit:10
             }
 
             return $http({method: 'GET', url:URLBASE, params:data_ }).

@@ -1,15 +1,90 @@
-<div ng-controller="InicioCtrl as inicio">
-    <form ng-submit="inicio.search()">
-        <label>Search:</label>
-        <input type="text" ng-model="inicio.word" placeholder="Enter a name here">
-        <input class="btn-primary" type="submit" value="Search">
-    </form>
+<style>
+
+    .image-character{
+        width: 150px;
+        height: 150px;
+    }
+    .card-text{
+        font-size: 12px;
+        color: gray;
+    }
+    .card-deck .card{
+        height: 300px;
+    }
+    .container-img{
+        position:absolute;
+        left: -10px;
+        top: -10px;
+
+    }
+    .card-body.principal{
+        position: absolute;
+        left: 135px;
+        top:-35px;
+    }
+    .card-body.principal .card-title{
+        text-transform: uppercase;
+    }
+
+    .card-body.footer{
+        position: absolute;
+        top: 120px;
+
+    }
 
 
-    <div ng-repeat="char in inicio.listCharacters">
-        <img ng-src="{{char.thumbnail.path}}.{{char.thumbnail.extension}}" style="width:100px;">
-        {{char.name}}
+</style>
+
+
+<div class="py-2 bg-light">
+
+    <div class="row">
+        <div class="col-md-12">
+            
+            <div>
+                <img src="/resources/icons/characters.png" class="float-left">
+                <h5>Characters</h5>
+            </div>
+            
+
+        </div>
     </div>
 
 
+    <div class="mt-3 row card-deck ">
+        <div ng-repeat="char in inicio.listCharacters" class="col-md-6 mb-5">
+            <div class="card ">
+                <div class="container-img">
+                    <img 
+                        ng-src="{{char.thumbnail.path}}.{{char.thumbnail.extension}}" 
+                        class="image-character img-fluid img-thumbnail rounded-circle float-left"
+                    >
+                </div>
+
+                <div class="card-body principal">
+                    <b class="card-title">{{char.name}}</b>
+                    <p class="card-text">
+                        {{char.description | limitTo:100  }}
+                        {{char.description.length > 100 ? '...' : ''}}
+                    </p>
+                    <a href="#" class="btn btn-danger">View</a>
+                        
+                </div>
+
+                <div class="card-body footer">
+                    <b class="card-title">Related comics</b>
+                    <div class="card-text">
+                        <div class="row" >
+                            <div class="col-md-6" ng-repeat="comic in char.comics.items | limitTo:4">
+                                {{comic.name}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            
+        </div>
+    </div>
 </div>

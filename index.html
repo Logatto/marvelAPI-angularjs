@@ -10,20 +10,27 @@
     <script src="/app/src/app.js"></script>
     <script src="/app/src/controllers/inicioController.js"></script>
     <script src="/app/src/services/inicioService.js"></script>
+
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+
   </head>
-  <body>
-        <div class="container">
-            <div class="navbar">
-                <div class="navbar-inner">
-                    <ul class="nav">
-                        <li><a href="#/inicio">Home</a></li>
-                    </ul>
-                </div>
+  <body ng-controller="InicioCtrl as inicio" style="padding-top: 5rem;" ng-init="inicio.search()">
+
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" >
+            <a class="navbar-brand" href="#/inicio">
+                <img src="/resources/Marvel-logo.png" alt="Marvel">
+            </a>
+        
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                
+                <form class="form-inline my-2 my-lg-0" ng-submit="inicio.search()">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" ng-model="inicio.word">
+                    <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+                </form>
             </div>
-            
-            <div ng-view></div>
-        </div>
+        </nav>
 
-
+        <main role="main" class="container" ng-view></main>
+       
   </body>
 </html>
