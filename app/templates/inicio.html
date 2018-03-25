@@ -1,11 +1,17 @@
 <style>
-
+    a { color: inherit; text-decoration: none;} 
+    
+    a:hover{
+        color:red; 
+        text-decoration:none; 
+        cursor:pointer;  
+    }
     .image-character{
         width: 150px;
         height: 150px;
     }
     .card-text{
-        font-size: 12px;
+        font-size: 11px;
         color: gray;
     }
     .card-deck .card{
@@ -33,16 +39,45 @@
     }
 
 
+    .lateral-bar{
+        background-color: #e0e0e0b0;
+    }
+
+    .icon-fav{
+        width: 25px;
+    }
+
+
+
+    .container-img-comic{
+        position: absolute;
+    }
+
+    .container-comic{
+        position: absolute;
+        left: 250px;
+        /* text-transform:uppercase; */
+    }
+
+    .image-comic{
+        width: 200px;
+    }
+
+    .modal-body{
+        height: 330px;
+    }
+
+
 </style>
 
 
-<div class="py-2 bg-light">
+<div class="col-md-9   py-2 bg-light">
 
     <div class="row">
         <div class="col-md-12">
             
             <div>
-                <img src="/resources/icons/characters.png" class="float-left">
+                <img src="/resources/icons/characters.png" class="float-left ml-2 mr-2 icon-fav">
                 <h5>Characters</h5>
             </div>
             
@@ -76,7 +111,7 @@
                     <div class="card-text">
                         <div class="row" >
                             <div class="col-md-6" ng-repeat="comic in char.comics.items | limitTo:4">
-                                {{comic.name}}
+                                <a ng-click="inicio.getComic(comic)" data-toggle="modal" data-target="#exampleModal">{{comic.name}}</a>
                             </div>
                         </div>
                     </div>
@@ -85,6 +120,57 @@
 
             </div>
             
+        </div>
+    </div>
+</div>
+
+<div class="col-md-3 lateral-bar">
+    <div class="row pt-2">
+        <div class="col-md-12">
+            <img src="/resources/icons/btn-favourites-primary.png" class="float-left mr-2 icon-fav">
+            <h5>My Favourites</h5>
+        </div>
+    </div>
+
+
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div class="modal-body">
+            
+            <div class="container-img-comic">
+                <img class="image-comic"
+                    ng-src={{inicio.modalComic.thumbnail.path}}.{{inicio.modalComic.thumbnail.extension}}>
+            </div>
+
+            <div class="container-comic ml-3 mr-3">
+                <h4>{{inicio.modalComic.title}}</h4>
+
+                <p>{{inicio.modalComic.description}}</p>
+            </div>
+
+
+
+        </div>
+        <div class="modal-footer">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-6"> Add to favourities</div>
+                    <div class="col-md-6"> Buy for $ {{inicio.modalComic.prices[0].price}}</div>
+                </div>
+            </div>
+        </div>
         </div>
     </div>
 </div>

@@ -6,6 +6,8 @@
     <script src="/node_modules/angular/angular.min.js"></script>
     <script src="/node_modules/angular-route/angular-route.min.js"></script>
     <script src="/node_modules/angular-md5/angular-md5.min.js"></script>
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"> </script>
 
     <script src="/app/src/app.js"></script>
     <script src="/app/src/controllers/inicioController.js"></script>
@@ -30,7 +32,9 @@
             </div>
         </nav>
 
-        <main role="main" class="container" ng-view></main>
+        <main role="main" class="container-fluid">
+            <div ng-view class="row"></div>
+        </main>
        
   </body>
 </html>
