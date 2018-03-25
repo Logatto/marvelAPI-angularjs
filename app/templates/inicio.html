@@ -43,6 +43,16 @@
         background-color: #e0e0e0b0;
     }
 
+    .image-comic-lateral{
+        width: 125px;
+
+    }
+
+    .container-favo{
+        text-align: center;
+        font-weight: bold;
+    }
+
     .icon-fav{
         width: 25px;
     }
@@ -55,16 +65,64 @@
 
     .container-comic{
         position: absolute;
-        left: 250px;
+        left: 220px;
         /* text-transform:uppercase; */
+    }
+
+    .container-comic h4{
+        text-transform: uppercase;
+    }
+
+    .container-comic p{
+        font-size: 12px;
+        color: gray;
     }
 
     .image-comic{
         width: 200px;
     }
 
+    .modal-dialog{
+        max-width: 600px;;
+    }
+    .modal-header{
+        padding:0.5em 1em 0 0;
+        border-bottom: 0;
+    }
+
     .modal-body{
         height: 330px;
+    }
+
+    .modal-footer{
+        justify-content: center;
+        padding: 0;
+    }
+
+    .modal-footer .container-add{
+        display: inline-block;
+        width: 50%;
+        height: 60px;
+        background: #f8f9fa;
+        margin-right: 0;
+        padding: 15px;
+        font-size: 15px;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+    }
+    .modal-footer .container-buy{
+        display: inline-block;
+        width: 50%;
+        height: 60px;
+        background-color: #dcdcdc;
+        margin-left: 0;
+        padding: 15px;
+        font-size: 15px;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+        color: #ed1e24;
     }
 
 
@@ -127,8 +185,18 @@
 <div class="col-md-3 lateral-bar">
     <div class="row pt-2">
         <div class="col-md-12">
-            <img src="/resources/icons/btn-favourites-primary.png" class="float-left mr-2 icon-fav">
+            <img src="/resources/icons/favourites.png" class="float-left mr-2 icon-fav">
             <h5>My Favourites</h5>
+
+            <div ng-repeat="favo in inicio.listFavorities" class="container-favo">
+                
+                <img class="image-comic-lateral pt-3" ng-src="{{favo.thumbnail.path}}.{{favo.thumbnail.extension}}">
+
+                {{favo.title}}
+            </div>
+
+
+
         </div>
     </div>
 
@@ -138,7 +206,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-md" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
 
         <div class="modal-header">
@@ -164,12 +232,18 @@
 
         </div>
         <div class="modal-footer">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="col-md-6"> Add to favourities</div>
-                    <div class="col-md-6"> Buy for $ {{inicio.modalComic.prices[0].price}}</div>
+            <!-- <div class="row"> -->
+                <!-- <div class="col-md-12"> -->
+                <div class="container-add" ng-click="inicio.setFavourities(inicio.modalComic)"> 
+                    <img src="/resources/icons/btn-favourites-default.png" class="icon-fav">
+                    Add to favourities
                 </div>
-            </div>
+                <div class="container-buy"> 
+                    <img src="/resources/icons/shopping-cart-primary.png" class="icon-fav">
+                    Buy for $ {{inicio.modalComic.prices[0].price}}
+                </div>
+                <!-- </div> -->
+            <!-- </div> -->
         </div>
         </div>
     </div>

@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
 
   </head>
-  <body ng-controller="InicioCtrl as inicio" style="padding-top: 5rem;" ng-init="inicio.search()">
+  <body ng-controller="InicioCtrl as inicio" style="padding-top: 5rem;" ng-init="inicio.search(); inicio.getFavourities();">
 
         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" >
             <a class="navbar-brand" href="#/inicio">
