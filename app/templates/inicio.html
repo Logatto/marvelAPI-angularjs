@@ -4,7 +4,7 @@
         <div class="col-md-12">
             
             <div>
-                <img src="resources/icons/characters.png" class="float-left ml-4 mr-2 icon-fav">
+                <img src="./resources/icons/characters.png" class="float-left ml-4 mr-2 icon-fav">
                 <h5>Characters</h5>
             </div>
             
@@ -54,7 +54,7 @@
 <div class="col-md-3 lateral-bar">
     <div class="row pt-2">
         <div class="col-md-12">
-            <img src="resources/icons/favourites.png" class="float-left mr-2 icon-fav">
+            <img src="./resources/icons/favourites.png" class="float-left mr-2 icon-fav">
             <h5>My Favourites</h5>
 
             <div
@@ -62,7 +62,7 @@
                 >
                 
                 <img class="image-comic-del" ng-click="inicio.removeFavourite(favo.id)"
-                    src="resources/icons/btn-delete.png" alt="delete favourites">
+                    src="./resources/icons/btn-delete.png" alt="delete favourites">
 
                 <img ng-click="inicio.getComic(favo)"
                     data-toggle="modal" data-target="#modalComic"
@@ -88,7 +88,7 @@
 
         <div class="modal-header">  
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <img src="resources/icons/btn-close.png" class="icon-fav">
+                    <img src="./resources/icons/btn-close.png" class="icon-fav">
             </button>
         </div>
 
@@ -113,19 +113,19 @@
             <div ng-if="inicio.existC"
                 class="container-add added" 
                 ng-click="inicio.setFavourities(inicio.modalComic)"> 
-                <img src="resources/icons/btn-favourites-primary.png" class="icon-fav">
+                <img src="./resources/icons/btn-favourites-primary.png" class="icon-fav">
                 Added to favourities
             </div>
 
             <div ng-if="!inicio.existC"
                 class="container-add" 
                 ng-click="inicio.setFavourities(inicio.modalComic)"> 
-                <img src="resources/icons/btn-favourites-default.png" class="icon-fav">
+                <img src="./resources/icons/btn-favourites-default.png" class="icon-fav">
                 Add to favourities
             </div>
 
             <div class="container-buy"> 
-                <img src="resources/icons/shopping-cart-primary.png" class="icon-fav">
+                <img src="./resources/icons/shopping-cart-primary.png" class="icon-fav">
                 Buy for $ {{inicio.modalComic.prices[0].price}}
             </div>
             
