@@ -1,12 +1,12 @@
 const path = require('path');
-
+var isProd = process.env.NODE_ENV === "production";
 module.exports = {
   entry: {
-    "home": path.resolve(__dirname, 'app/src/app.js'),
+    "home": path.resolve(__dirname, 'app/index.js'),
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js/[name].js'
+    filename: isProd ? '[name].js':'dist/[name].js'
   },
   devServer: {
     port: 9000,

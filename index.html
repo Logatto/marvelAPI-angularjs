@@ -2,27 +2,29 @@
 <html ng-app="spaApp">
   <head>
     <meta charset="UTF-8">
-    <base href="/">
-    <script src="/node_modules/angular/angular.min.js"></script>
+    <!-- <base href="/"> -->
+    <!-- <script src="/node_modules/angular/angular.min.js"></script>
     <script src="/node_modules/angular-route/angular-route.min.js"></script>
     <script src="/node_modules/angular-md5/angular-md5.min.js"></script>
     <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"> </script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"> </script> -->
 
-    <script src="/app/src/app.js"></script>
-    <script src="/app/src/controllers/inicioController.js"></script>
-    <script src="/app/src/services/inicioService.js"></script>
+    <script src="./dist/home.js"> </script>
+
+    <script src="./app/src/app.js"></script>
+    <script src="./app/src/controllers/inicioController.js"></script>
+    <script src="./app/src/services/inicioService.js"></script>
 
     
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="/app/styles/inicio.css">
+    <!-- <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css"> -->
+    <link rel="stylesheet" href="./app/styles/inicio.css">
 
   </head>
   <body ng-controller="InicioCtrl as inicio" style="padding-top: 5rem;" ng-init="inicio.search(); inicio.getFavourities();">
 
         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" >
             <a class="navbar-brand ml-3" href="#/inicio">
-                <img src="/resources/Marvel-logo.png" alt="Marvel">
+                <img src="resources/Marvel-logo.png" alt="Marvel">
             </a>
         
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
