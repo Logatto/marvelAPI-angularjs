@@ -13,21 +13,22 @@
     <script src="/app/src/controllers/inicioController.js"></script>
     <script src="/app/src/services/inicioService.js"></script>
 
+    
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/app/styles/inicio.css">
 
   </head>
   <body ng-controller="InicioCtrl as inicio" style="padding-top: 5rem;" ng-init="inicio.search(); inicio.getFavourities();">
 
         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" >
-            <a class="navbar-brand" href="#/inicio">
+            <a class="navbar-brand ml-3" href="#/inicio">
                 <img src="/resources/Marvel-logo.png" alt="Marvel">
             </a>
         
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 
-                <form class="form-inline my-2 my-lg-0" ng-submit="inicio.search()">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" ng-model="inicio.word">
-                    <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+                <form class="form-inline my-2 col-10 ml-3 my-lg-0" ng-submit="inicio.search()">
+                    <input class="form-control mr-sm-2 col-9 ml-5" type="text" placeholder="Search character..." aria-label="Search" ng-model="inicio.word">
                 </form>
             </div>
         </nav>
