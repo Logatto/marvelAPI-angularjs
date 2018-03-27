@@ -95,6 +95,8 @@ a:hover{
 .container-comic p{
     font-size: 12px;
     color: gray;
+    overflow-y: auto;
+    max-height: 210px;
 }
 
 .image-comic{
@@ -156,4 +158,15 @@ a:hover{
     text-transform: uppercase;
     text-align: center;
     color: #ed1e24;
+}
+
+
+.text-random{
+    text-align: center;
+    color: #ed1d23;
+    font-weight: bold;
+    cursor: pointer;
+    font-style: italic;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #020202;
 }

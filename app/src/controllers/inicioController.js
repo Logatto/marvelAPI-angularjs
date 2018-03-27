@@ -8,6 +8,8 @@ spaApp
 
     this.listFavorities = [];
 
+    this.itemsRandom = []
+
     this.existC = false;
 
     this.search = () =>{
@@ -72,6 +74,43 @@ spaApp
 
       localStorage.setItem("favourities",JSON.stringify(new_items));
 
+    }
+
+    this.addRandComics = ()=>{
+
+      let comics = [];
+
+      this.listCharacters.map((element)=>{
+        
+        let listCom = element.comics.items;
+        
+        listCom.map( (item)=>{
+          comics.push(item);
+        });
+
+      } );
+
+      this.randomItems(comics);
+
+    }
+
+
+    this.randomItems = (items)=>{
+      let itemsRandom = [];
+      while(itemsRandom.length<3){
+        let new_ = Math.floor( Math.random() * items.length  );
+        if(!itemsRandom.includes(new_)){
+          itemsRandom.push(new_);
+        } 
+      }
+
+      return itemsRandom.map((elem)=>{
+        
+        inicioService.getComic( items[elem] ).then( (result)=>{
+          this.setFavourities(result.data.results[0]);
+        });
+
+      });
     }
 
 
