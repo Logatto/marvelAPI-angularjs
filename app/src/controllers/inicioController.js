@@ -12,8 +12,10 @@ spaApp
 
     this.existC = false;
 
+    this.selectedOrder = "name";
+
     this.search = () =>{
-        inicioService.getCharacters(this.word).then( (result) =>{
+        inicioService.getCharacters(this.word,this.selectedOrder).then( (result) =>{
           this.listCharacters = result.data.results;
         });
     }
@@ -111,6 +113,11 @@ spaApp
         });
 
       });
+    }
+
+    this.changeOrder = ()=>{
+      this.search();
+      console.log("CHANGE",this.selectedOrder);
     }
 
 

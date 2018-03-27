@@ -5,7 +5,15 @@
             
             <div>
                 <img src="./resources/icons/characters.png" class="float-left ml-4 mr-2 icon-fav">
-                <h5>Characters</h5>
+                <h5 style="display:inline-block;">Characters</h5>
+
+                <select ng-model="inicio.selectedOrder" ng-change="inicio.changeOrder()" class="form-control float-right select_order">
+                    <option value="name">Name</option>
+                    <option value="modified">Modified</option>
+                    <option value="-name">Name desc</option>
+                    <option value="-modified">Modified desc</option>
+                </select>
+
             </div>
             
 

@@ -40,7 +40,8 @@ a:hover{
 .card-body.principal{
     position: absolute;
     left: 135px;
-    top:-35px;
+    top:-15px;
+    padding-top: 0px;
 }
 .card-body.principal .card-title{
     text-transform: uppercase;
@@ -169,4 +170,10 @@ a:hover{
     font-style: italic;
     margin-bottom: 10px;
     border-bottom: 2px solid #020202;
+}
+
+.select_order{
+    width:130px;
+    display:inline-block;
+    height:30px!important;
 }
