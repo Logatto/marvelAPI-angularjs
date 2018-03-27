@@ -33,7 +33,10 @@ spaApp.factory('inicioService', function($http, $log,md5){
                 hash: hash
             }
 
-            return $http({method: 'GET', url: comic.resourceURI  , params:data_ }).
+            let comicURL = comic.resourceURI;
+            comicURL = comicURL.replace(/^http:\/\//i, 'https://');
+
+            return $http({method: 'GET', url: comicURL  , params:data_ }).
                 then(function(response){
                     return response.data;
                 }); 

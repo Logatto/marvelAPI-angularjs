@@ -7,5 +7,3 @@ var bootstrap = require("bootstrap");
 
 require("bootstrap/dist/css/bootstrap.min.css");
 
-
-// var spaApp = require("./src/app.js");
