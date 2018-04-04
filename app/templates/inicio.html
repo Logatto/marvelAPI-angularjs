@@ -37,7 +37,7 @@
                         {{char.description | limitTo:100  }}
                         {{char.description.length > 100 ? '...' : ''}}
                     </p>
-                    <a href="#" class="btn btn-sm btn-danger">View more</a>
+                    <a ng-click="inicio.getCharacter(char)" data-toggle="modal" data-target="#modalChar" class="btn btn-sm btn-danger">View more</a>
                         
                 </div>
 
@@ -114,6 +114,75 @@
 
 
 <!-- Modal -->
+
+
+<div class="modal fade" id="modalChar" tabindex="-2" role="dialog" aria-labelledby="modalCharLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-char" role="document">
+            <div class="modal-content">
+    
+            <div class="modal-header">  
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <img src="./resources/icons/btn-close.png" class="icon-fav">
+                </button>
+            </div>
+    
+            <div class="modal-body">
+                
+                <div class="container-img-comic">
+                    <img class="image-comic"
+                        ng-src={{inicio.modalChar.thumbnail.path}}.{{inicio.modalChar.thumbnail.extension}}>
+                </div>
+    
+                <div class="container-comic ml-3 mr-3">
+                    <h5>{{inicio.modalChar.name}}</h5>
+    
+                    <div class="content-char">
+                        <p>{{inicio.modalChar.description}}</p>
+        
+                        <b>Related comics</b>
+                        <ul class="pt-3">
+                            <div class="row">
+                                <li class="col-md-6 list-comics" ng-repeat="comic in inicio.modalChar.comics.items">
+                                    <a ng-click="inicio.getComic(comic)" data-toggle="modal" data-target="#modalComic">{{comic.name}}</a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+    
+    
+                </div>
+    
+    
+    
+            </div>
+            <!-- <div class="modal-footer" >
+                
+                <div ng-if="inicio.existC"
+                    class="container-add added" 
+                    ng-click="inicio.setFavourities(inicio.modalComic)"> 
+                    <img src="./resources/icons/btn-favourites-primary.png" class="icon-fav">
+                    Added to favourities
+                </div>
+    
+                <div ng-if="!inicio.existC"
+                    class="container-add" 
+                    ng-click="inicio.setFavourities(inicio.modalComic)"> 
+                    <img src="./resources/icons/btn-favourites-default.png" class="icon-fav">
+                    Add to favourities
+                </div>
+    
+                <div class="container-buy"> 
+                    <img src="./resources/icons/shopping-cart-primary.png" class="icon-fav">
+                    Buy for $ {{inicio.modalComic.prices[0].price}}
+                </div>
+                
+            </div> -->
+            </div>
+        </div>
+    </div>
+
+
+
 <div class="modal fade" id="modalComic" tabindex="-1" role="dialog" aria-labelledby="modalComicLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">

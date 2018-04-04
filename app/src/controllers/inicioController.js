@@ -19,13 +19,20 @@ spaApp
 
     this.totalPages = 0;
 
-    this.search = () =>{
-        inicioService.getCharacters(this.word,this.selectedOrder,this.actualPage).then( (result) =>{
-          this.listCharacters = result.data.results;
-          this.countTotal = result.data.total;
 
-          this.getPaginations();
-        });
+    this.modalChar = {};
+
+    this.search = (resetActualPage = false) =>{
+      if(resetActualPage){
+        this.actualPage = 1;
+      }
+
+      inicioService.getCharacters(this.word,this.selectedOrder,this.actualPage).then( (result) =>{
+        this.listCharacters = result.data.results;
+        this.countTotal = result.data.total;
+
+        this.getPaginations();
+      });
     }
 
     this.getComic = (comic) =>{
@@ -148,6 +155,10 @@ spaApp
     this.setPage = (n) =>{
       this.actualPage = n;
       this.search();
+    }
+
+    this.getCharacter = (char)=>{
+      this.modalChar = char;
     }
 
 

@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="./app/styles/inicio.css">
 
   </head>
-  <body ng-controller="InicioCtrl as inicio" style="padding-top: 5rem;" ng-init="inicio.search(); inicio.getFavourities();">
+  <body ng-controller="InicioCtrl as inicio" style="padding-top: 4rem;" ng-init="inicio.search(); inicio.getFavourities();">
 
         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" >
             <a class="navbar-brand ml-3" href="#/inicio">
@@ -29,7 +29,7 @@
         
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 
-                <form class="form-inline my-2 col-10 ml-3 my-lg-0" ng-submit="inicio.search()">
+                <form class="form-inline my-2 col-10 ml-3 my-lg-0" ng-submit="inicio.search(true)">
                     <input class="form-control mr-sm-2 col-9 ml-5" type="text" placeholder="Search character..." aria-label="Search" ng-model="inicio.word">
                 </form>
             </div>
