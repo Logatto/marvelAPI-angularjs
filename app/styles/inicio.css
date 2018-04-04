@@ -242,3 +242,9 @@ footer.footer{
     padding-right: 20px;
     padding-bottom: 8px;
 }
+
+.icon-search{
+    position: relative;
+    left: -35px;
+    color: gray;
+}

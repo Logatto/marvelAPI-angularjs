@@ -18,6 +18,7 @@
     
     <!-- <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css"> -->
     <link rel="stylesheet" href="./app/styles/inicio.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
   </head>
   <body ng-controller="InicioCtrl as inicio" style="padding-top: 4rem;" ng-init="inicio.search(); inicio.getFavourities();">
@@ -31,6 +32,7 @@
                 
                 <form class="form-inline my-2 col-10 ml-3 my-lg-0" ng-submit="inicio.search(true)">
                     <input class="form-control mr-sm-2 col-9 ml-5" type="text" placeholder="Search character..." aria-label="Search" ng-model="inicio.word">
+                    <div class="input-group-addon icon-search" ><i class="fa fa-search fa-lg"></i></div>
                 </form>
             </div>
         </nav>
