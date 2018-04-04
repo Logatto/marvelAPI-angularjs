@@ -56,7 +56,29 @@
             </div>
             
         </div>
+
     </div>
+
+    <div class="row">
+        <div class="text-xs-center">
+        
+            <ul class="pagination">
+                <li class="page-item" ng-class="(inicio.actualPage==1)?'disabled':''">
+                    <a class="page-link" ng-click="inicio.setPage(inicio.actualPage-1)"> < </a>
+                </li>
+
+                <li ng-repeat="n in inicio.getPaginations()"  class="page-item" ng-class="(inicio.actualPage==n)?'active':''">
+                    <a class="page-link" ng-click="inicio.setPage(n)"  >{{n}}</a>
+                </li>
+
+                <li class="page-item" ng-class="(inicio.actualPage==inicio.totalPages)?'disabled':''">
+                    <a class="page-link" ng-click="inicio.setPage(inicio.actualPage+1)"  > > </a>
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+
 </div>
 
 <div class="col-md-3 lateral-bar">

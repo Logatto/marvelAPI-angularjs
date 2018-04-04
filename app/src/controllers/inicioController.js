@@ -14,9 +14,17 @@ spaApp
 
     this.selectedOrder = "name";
 
+    this.actualPage = 1;
+    this.countTotal = 0;
+
+    this.totalPages = 0;
+
     this.search = () =>{
-        inicioService.getCharacters(this.word,this.selectedOrder).then( (result) =>{
+        inicioService.getCharacters(this.word,this.selectedOrder,this.actualPage).then( (result) =>{
           this.listCharacters = result.data.results;
+          this.countTotal = result.data.total;
+
+          this.getPaginations();
         });
     }
 
@@ -117,7 +125,29 @@ spaApp
 
     this.changeOrder = ()=>{
       this.search();
-      console.log("CHANGE",this.selectedOrder);
+    }
+
+
+    this.getPaginations = ()=>{
+
+      this.totalPages = Math.ceil(this.countTotal/10);
+
+      let init = ( (this.actualPage-5)>0) ? this.actualPage-5 : 1;
+
+      let fin = (this.actualPage+5)<=this.totalPages ? ( (this.actualPage<=5)?10:this.actualPage+4   ) : this.totalPages;
+
+      let input = [];
+      for (var i=init; i<=fin; i++) {
+        input.push(i);
+      }
+
+      return input;
+
+    }
+
+    this.setPage = (n) =>{
+      this.actualPage = n;
+      this.search();
     }
 
 

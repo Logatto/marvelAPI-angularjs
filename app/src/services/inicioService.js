@@ -5,7 +5,7 @@ var URLBASE = "https://gateway.marvel.com:443/v1/public";
 
 spaApp.factory('inicioService', function($http, $log,md5){
     return {
-        getCharacters:function(palabra,order) {
+        getCharacters:function(palabra,order,offset) {
             var ts = new Date().getTime();
 
             var hash = md5.createHash( ts + PRIV_KEY + PUBLIC_KEY);
@@ -16,7 +16,8 @@ spaApp.factory('inicioService', function($http, $log,md5){
                 hash: hash,
                 nameStartsWith:palabra,
                 limit:10,
-                orderBy:order
+                orderBy:order,
+                offset: (offset*10) -10 
             }
 
             return $http({method: 'GET', url:URLBASE+'/characters', params:data_ }).
